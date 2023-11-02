@@ -1,28 +1,34 @@
 public class ClassesAndObjects {
     public static void main(String[] args) {
         Person person1 = new Person();
-        person1.setNameAndAge("Roman",45);
-        person1.sayHello();
-        Person person2 = new Person();
-        String s2 = "Vovka";
-        person2.setNameAndAge(s2,22);
-        person2.present();
+        person1.setName("");
+        person1.setAge(0);
         person1.present();
-
-        int year1 = person1.calculateYearsRetired();
-        int year2 = person2.calculateYearsRetired();
-        System.out.println("First man to retired is "+year1);
-        System.out.println("Second man to retired is "+year2);
-
     }
 }
 class Person{
-    String name;
-    int age;
+    private String name;
+    private int age;
 
-    void setNameAndAge(String username, int ageN){
-        name = username;
-        age = ageN;
+    public void setName(String userName){
+       if (userName.isEmpty()){
+            System.out.println("Field name is empty");
+        } else{ name = userName;}
+    }
+    public String getName(){
+        return name;
+    }
+
+    public void setAge(int userAge){
+        if(userAge > 0){
+            age = userAge;;
+        } else {
+            System.out.println("Age is incorrect");
+        }
+
+    }
+    public int getAge(){
+        return age;
     }
 
     int calculateYearsRetired(){
